@@ -34,7 +34,7 @@ jobs:
       - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
         run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
       # - uses: diggerhq/digger@5fbaf81378d670c2e175a05f7d7fbd069f5f3710 # v0.6.126
-      - uses: v0.6.126
+      - uses: diggerhq/digger@v0.6.126
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
