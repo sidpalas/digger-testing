@@ -16,7 +16,3 @@ resource "null_resource" "default" {
     command = "echo 'Hello World Again!'"
   }
 }
-
-resource "aws_s3_bucket" "example" {
-  bucket = "devops-directivemy-test-bucket"
-}

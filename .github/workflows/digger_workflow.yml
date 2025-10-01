@@ -42,6 +42,8 @@ jobs:
           digger-spec: ${{ inputs.spec }}
           setup-terraform: true
           terraform-version: 1.13.3
+          upload-plan-destination: github # deprecated
+
 
           # setup-opentofu: true
           # opentofu-version: 1.10.3
