@@ -1,20 +1,15 @@
-projects: []
+projects:
+  - name: staging
+    dir: "live/staging"
+    terragrunt: true
+    workflow: default
+    apply_requirements: [undiverged]
 
-generate_projects:
-  blocks:
-    - block_name: staging
-      root_dir: "live/staging"
-      terragrunt: true
-      workflow: default
-      terragrunt_parsing:
-        defaultApplyRequirements: [undiverged]
-
-    - block_name: prod
-      root_dir: "live/prod"
-      terragrunt: true
-      workflow: default
-      terragrunt_parsing:
-        defaultApplyRequirements: [mergeable, undiverged, approved]
+  - name: prod
+    dir: "live/prod"
+    terragrunt: true
+    workflow: default
+    apply_requirements: [mergeable, undiverged, approved]
 
 workflows:
   default:
