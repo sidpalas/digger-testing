@@ -1,16 +1,14 @@
 generate_projects:
   blocks:
-    - include: "live/staging/**"
-      exclude: "**/.terraform/**"
-      root_dir: "live"
+    - block_name: staging
+      root_dir: "live/staging"
       terragrunt: true
       workflow: default
       terragrunt_parsing:
         defaultApplyRequirements: [undiverged]
 
-    - include: "live/prod/**"
-      exclude: "**/.terraform/**"
-      root_dir: "live"
+    - block_name: prod
+      root_dir: "live/prod"
       terragrunt: true
       workflow: default
       terragrunt_parsing:
