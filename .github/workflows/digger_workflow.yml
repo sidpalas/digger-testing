@@ -29,11 +29,6 @@ jobs:
         with:
           terraform_version: "1.14.3"
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      # - name: "Configure AWS Credentials"
-      #   uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
-      #   with:
-      #     aws-region: ${{ env.AWS_REGION }}
-      #     role-to-assume: arn:aws:iam::094905625236:role/github-oidc-admin
       - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
         run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
       - uses: diggerhq/digger@31d84f9498d8d54bb173d086c83d6c9af314d603 # v0.6.129
@@ -43,9 +38,3 @@ jobs:
         with:
           digger-spec: ${{ inputs.spec }}
           digger-version: v0.6.129
-          # setup-opentofu: true
-          # opentofu-version: 1.10.3
-      # Alternatively, I think I could setup AWS directly here...
-      #     setup-aws: true
-      #     aws-region: ${{ env.AWS_REGION }}
-      #     aws-role-to-assume: arn:aws:iam::094905625236:role/github-oidc-admin
