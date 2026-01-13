@@ -25,6 +25,9 @@ jobs:
       statuses: write # required to validate combined PR status
 
     steps:
+      - uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3.1.2
+        with:
+          terraform_version: "1.14.3"
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       # - name: "Configure AWS Credentials"
       #   uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
@@ -39,8 +42,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           digger-spec: ${{ inputs.spec }}
-          setup-opentofu: true
-          opentofu-version: 1.10.3
+          # setup-opentofu: true
+          # opentofu-version: 1.10.3
       # Alternatively, I think I could setup AWS directly here...
       #     setup-aws: true
       #     aws-region: ${{ env.AWS_REGION }}
