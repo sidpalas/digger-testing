@@ -1,12 +1,7 @@
-generate_projects:
-  blocks:
-    - block_name: staging
-      terragrunt: true
-      root_dir: "live/staging/"
-      workflow: default
-      workflow_file: digger_workflow.yml
-    - block_name: prod
-      terragrunt: true
-      root_dir: "live/prod/"
-      workflow: default
-      workflow_file: digger_workflow.yml
+projects:
+  - name: staging
+    include: "live/staging/*"
+    workflow: default
+  - name: prod
+    include: "live/prod/*"
+    workflow: default
