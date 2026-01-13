@@ -1,7 +1,8 @@
-projects:
-  - name: staging
-    dir: staging
-    terragrunt: true
-  - name: prod
-    dir: prod
-    terragrunt: true
+generate_projects:
+  blocks:
+    - block_name: staging
+      terragrunt: true
+      root_dir: live/staging/
+    - block_name: prod
+      terragrunt: true
+      root_dir: live/prod/
