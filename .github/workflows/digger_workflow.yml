@@ -28,9 +28,9 @@ jobs:
       - uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3.1.2
         with:
           terraform_version: "1.14.3"
-      - name: Install Terragrunt
-        uses: gruntwork-io/terragrunt-action@5e86476ca61eaf74adb9c0525745f29f921f2199 # v3.1.0
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Install Terragrunt # uses mise.toml from repo for versions (has to come after checkout)
+        uses: gruntwork-io/terragrunt-action@5e86476ca61eaf74adb9c0525745f29f921f2199 # v3.1.0
       - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
         run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
       - uses: diggerhq/digger@31d84f9498d8d54bb173d086c83d6c9af314d603 # v0.6.129
