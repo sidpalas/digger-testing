@@ -1,11 +1,11 @@
 projects:
   - name: staging
     include: "live/staging/*"
-    root_dir: "live/staging/"
+    dir: "live/staging"
     terragrunt: true
     workflow: default
   - name: prod
     include: "live/prod/*"
-    root_dir: "live/prod/"
+    dir: "live/prod"
     terragrunt: true
     workflow: default
