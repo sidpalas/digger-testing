@@ -1,3 +1,42 @@
-projects:
-  - name: staging
-    dir: staging
+generate_projects:
+  blocks:
+    - block_name: staging
+      root_dir: "live/staging"
+      terragrunt: true
+      workflow: staging
+
+    - block_name: prod
+      root_dir: "live/prod"
+      terragrunt: true
+      workflow: prod
+
+workflows:
+  staging:
+    plan:
+      steps:
+        - init
+        - plan
+    apply:
+      steps:
+        - init
+        - run: terragrunt apply -auto-approve -lock-timeout=3m
+    workflow_configuration:
+      on_pull_request_pushed: ["digger plan"]
+      on_pull_request_closed: ["digger unlock"]
+      on_commit_to_default: ["digger unlock"]
+      skip_merge_check: true
+
+  prod:
+    plan:
+      steps:
+        - init
+        - plan
+    apply:
+      steps:
+        - init
+        - run: terragrunt apply -auto-approve -lock-timeout=3m
+    workflow_configuration:
+      on_pull_request_pushed: ["digger plan"]
+      on_pull_request_closed: ["digger unlock"]
+      on_commit_to_default: ["digger unlock"]
+      skip_merge_check: false
