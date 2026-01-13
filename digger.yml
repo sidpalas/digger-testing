@@ -13,3 +13,14 @@ generate_projects:
       workflow: default
       terragrunt_parsing:
         defaultApplyRequirements: [mergeable, undiverged, approved]
+
+workflows:
+  default:
+    plan:
+      steps:
+        - init
+        - plan
+    apply:
+      steps:
+        - init
+        - apply
