@@ -1,15 +1,20 @@
-projects:
-  - name: staging
-    dir: "live/staging"
-    terragrunt: true
-    workflow: default
-    apply_requirements: [undiverged]
+generate_projects:
+  blocks:
+    - include: "live/staging/**"
+      exclude: "**/.terraform/**"
+      root_dir: "live"
+      terragrunt: true
+      workflow: default
+      terragrunt_parsing:
+        defaultApplyRequirements: [undiverged]
 
-  - name: prod
-    dir: "live/prod"
-    terragrunt: true
-    workflow: default
-    apply_requirements: [mergeable, undiverged, approved]
+    - include: "live/prod/**"
+      exclude: "**/.terraform/**"
+      root_dir: "live"
+      terragrunt: true
+      workflow: default
+      terragrunt_parsing:
+        defaultApplyRequirements: [mergeable, undiverged, approved]
 
 workflows:
   default:
@@ -21,3 +26,7 @@ workflows:
       steps:
         - init
         - apply
+    workflow_configuration:
+      on_pull_request_pushed: ["digger plan"]
+      on_pull_request_closed: ["digger unlock"]
+      on_commit_to_default: ["digger unlock"]
