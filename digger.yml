@@ -1,3 +1,7 @@
 projects:
   - name: staging
     dir: staging
+    terragrunt: true
+  - name: prod
+    dir: prod
+    terragrunt: true
