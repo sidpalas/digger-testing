@@ -1,7 +1,9 @@
 projects:
   - name: staging
     include: "live/staging/*"
+    terragrunt: true
     workflow: default
   - name: prod
     include: "live/prod/*"
+    terragrunt: true
     workflow: default
