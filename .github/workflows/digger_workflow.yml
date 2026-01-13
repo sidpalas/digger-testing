@@ -42,6 +42,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           digger-spec: ${{ inputs.spec }}
+          digger-version: v0.6.129
           # setup-opentofu: true
           # opentofu-version: 1.10.3
       # Alternatively, I think I could setup AWS directly here...
