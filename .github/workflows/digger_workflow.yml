@@ -26,14 +26,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - name: "Configure AWS Credentials"
-        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
-        with:
-          aws-region: ${{ env.AWS_REGION }}
-          role-to-assume: arn:aws:iam::094905625236:role/github-oidc-admin
+      # - name: "Configure AWS Credentials"
+      #   uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
+      #   with:
+      #     aws-region: ${{ env.AWS_REGION }}
+      #     role-to-assume: arn:aws:iam::094905625236:role/github-oidc-admin
       - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
         run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
-      - uses: diggerhq/digger@5fbaf81378d670c2e175a05f7d7fbd069f5f3710 # v0.6.126
+      - uses: diggerhq/digger@31d84f9498d8d54bb173d086c83d6c9af314d603 # v0.6.129
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
