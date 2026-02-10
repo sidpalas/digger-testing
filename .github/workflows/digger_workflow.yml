@@ -40,3 +40,4 @@ jobs:
         with:
           digger-spec: ${{ inputs.spec }}
           digger-version: v0.6.129
+          digger-hostname: "https://hyperphysical-alyse-metagnathous.ngrok-free.dev"
