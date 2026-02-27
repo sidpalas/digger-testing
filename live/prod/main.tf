@@ -1,5 +1,1 @@
-resource "null_resource" "default" {
-  provisioner "local-exec" {
-    command = "echo 'Hello Prod!'"
-  }
-}
+resource "null_resource" "smoke_test" {}
