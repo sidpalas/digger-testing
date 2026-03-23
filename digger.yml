@@ -2,6 +2,6 @@ projects:
   - name: production
     dir: live/prod
     opentofu: true
-  - name: production
+  - name: staging
     dir: live/staging
     opentofu: true
